@@ -21,14 +21,48 @@ def binaryAdd(a, b): #this is the beginning of a python function
     if m < n: #if string a is shorter than string b
         num_missing_zeros = n - m
         a = num_missing_zeros*"0" + a #appending 0's to the beginning of string a, to make it the same length as b
-        
-    #FIXME: IF STRING b IS SHORTER THAN STRING a, APPEND 0's TO THE BEGINNING OF STRING b TO MAKE LENGTHS EQUAL
-     
+    
+    sum = ''
+    c = 0
+    carry = 1
+    carry2 = 0
     print("a = ",a)
     print("b = ",b)
-    sum = bin(int(a,2)+int(b,2))[2:]
     
-    return str(sum)
+    i = len(a) - 1
+    while (i>=0):
+        x = int(a[i])+int(b[i]) #iterating and testing the possible additions per line
+        if x==2:
+            if c==0:
+                c = carry
+                sum = "%s%s" % (sum, '0') #checks for carry then adds
+            else: 
+                sum = "%s%s" % (sum, '1')
+                
+        elif x == 1: 
+            if c == 1:
+                sum = "%s%s" % (sum, '0')
+            else:
+                sum = "%s%s" % (sum, '1')
+        else: 
+            if c == 1:
+                sum = "%s%s" % (sum, '1')
+                c = carry2   
+            else:
+                sum = "%s%s" % (sum, '0') 
+
+        i = i - 1;
+
+    if c>0:             #THIS WAS AVAILIABLE IN LEARNING PYTHON BY MARK LUTZ (Last 3 lines) in "understanding binary addition"
+       sum = "%s%s" % (sum, '1')
+    return sum[::-1] 
+    
+    #FIXME: IF STRING b IS SHORTER THAN STRING a, APPEND 0's TO THE BEGINNING OF STRING b TO MAKE LENGTHS EQUAL
+     
+
+    #sum = bin(int(a,2)+int(b,2))[2:]
+    
+    #return str(sum)
     
 
     

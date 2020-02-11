@@ -21,6 +21,9 @@ def binaryAdd(a, b): #this is the beginning of a python function
     if m < n: #if string a is shorter than string b
         num_missing_zeros = n - m
         a = num_missing_zeros*"0" + a #appending 0's to the beginning of string a, to make it the same length as b
+    if n < m: #if string a is shorter than string b
+        num_missing_zeros = m-n
+        b = num_missing_zeros*"0" + b
     
     sum = ''
     

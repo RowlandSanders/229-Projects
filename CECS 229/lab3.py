@@ -23,9 +23,11 @@ def binaryAdd(a, b): #this is the beginning of a python function
         a = num_missing_zeros*"0" + a #appending 0's to the beginning of string a, to make it the same length as b
     
     sum = ''
+    
     c = 0
     carry = 1
     carry2 = 0
+    
     print("a = ",a)
     print("b = ",b)
     

@@ -31,7 +31,7 @@ def binaryAdd(a, b): #this is the beginning of a python function
     print("a = ",a)
     print("b = ",b)
     
-    i = len(a) - 1
+    i = m - 1
     while (i>=0):
         x = int(a[i])+int(b[i]) #iterating and testing the possible additions per line
         if x==2:

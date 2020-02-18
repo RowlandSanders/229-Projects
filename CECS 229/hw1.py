@@ -37,12 +37,27 @@
 # 
 # 
 
-# In[1]:
+# In[5]:
 
 
-def modExp(b, n, m):
-    sum=(b**n)%m
+def modExp(b, n, m) :      
+    
+    b=b%m  
+    sum=0
+    t = 1
+    while (n > 0) : 
+        if ((n & 1)==1) : 
+            t=(t*b)%m
+        b = (b**2)%m 
+        n = n >> 1 #bitwise shift to right
+    sum = t
+    
     return sum
+
+#Original code without alg
+#def modExp(b, n, m):
+#    sum=(b**n)%m
+#    return sum
 
 
 # #### Problem 2:
@@ -62,7 +77,7 @@ def modExp(b, n, m):
 # 
 # 
 
-# In[2]:
+# In[6]:
 
 
 def bezoutCoeffs(a, b):
@@ -101,7 +116,7 @@ def bezoutCoeffs(a, b):
 # 
 # `2`
 
-# In[3]:
+# In[7]:
 
 
 def gcd(a,b):
@@ -111,7 +126,7 @@ def gcd(a,b):
     return sum
 
 
-# In[5]:
+# In[8]:
 
 
 """ TESTER CELL """
